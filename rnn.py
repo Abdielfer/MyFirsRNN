@@ -48,8 +48,8 @@ hidden_tensor = rnn.init_hidden()
 output, next_hidden = rnn(input_tensor[0], hidden_tensor)
 #print(output.size())
 #print(next_hidden.size())
-
 #
+
 def category_from_output(output):
     category_idx = torch.argmax(output).item()
     return all_categories[category_idx]
