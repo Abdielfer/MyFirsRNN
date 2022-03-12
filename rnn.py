@@ -1,3 +1,4 @@
+
 import torch
 import torch.nn as nn 
 import matplotlib.pyplot as plt 
@@ -90,8 +91,8 @@ for i in range(n_iters):
         
     if (i+1) % print_steps == 0:
         guess = category_from_output(output)
-        correct = "CORRECT" if guess == category else f"WRONG ({category})"
-        print(f"{i+1} {(i+1)/n_iters*100} {loss:.4f} {line} / {guess} {correct}")
+        correct = "CORRECT" if guess == category else print(f"WRONG {category}")
+        print(f" {i+1} {correct} {(i+1)/n_iters*100} {loss}")#",", loss,", ", {line}/{guess}, ": ",{correct})
         
     
 plt.figure()
@@ -99,7 +100,7 @@ plt.plot(all_losses)
 plt.show()
 
 def predict(input_line):
-    print(f"\n> {input_line}")
+    print("\n :",input_line)
     with torch.no_grad():
         line_tensor = line_to_tensor(input_line)
         
